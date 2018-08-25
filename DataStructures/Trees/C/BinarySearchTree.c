@@ -53,16 +53,16 @@ void freeTree(Node *root) {
  * @param newNode: A pointer to the node to be inserted.
  * @return The pointer to the modified tree root.
  */
-Node *insert(Node *root, Node *newNode) {
+Node *insertNode(Node *root, Node *newNode) {
     if (!root) {
         return newNode;
     }
 
     if (newNode->info <= root->info) {
-        root->left = insert(root->left, newNode);
+        root->left = insertNode(root->left, newNode);
     }
     else if (newNode->info > root->info) {
-        root->right = insert(root->right, newNode);
+        root->right = insertNode(root->right, newNode);
     }
 
     return root;

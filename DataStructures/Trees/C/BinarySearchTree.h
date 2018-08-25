@@ -9,7 +9,7 @@ typedef struct node {
 
 Node *createNode(int info);
 void freeTree(Node *root);
-Node *insert(Node *root, Node *newNode);
+Node *insertNode(Node *root, Node *newNode);
 Node *removeNode(Node *root, int info);
 void printInOrder(Node *root);
 void printPreOrder(Node *root);
