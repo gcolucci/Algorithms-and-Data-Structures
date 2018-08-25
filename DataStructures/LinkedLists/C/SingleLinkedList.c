@@ -8,8 +8,9 @@
  /**
  * Creates a new list node.
  *
- * It uses the -> symbols to represent the link between
- * two nodes. Null nodes are represented with -.
+ * It allocates space in the memory and initializes the
+ * fields with a NULL pointer to the successor and the
+ * info received by parameter.
  *
  * @param info: The int info stored by the node.
  * @return a pointer to the new node.
@@ -305,8 +306,7 @@ Node *reverseList(Node *head) {
  *
  * @param head: A pointer to the list head.
  * @param prev: A pointer to the list predecessor.
- * @param newHead: A pointer to the list updated head.
- * @return a reverted list starting in head.
+ * @param newHead: A pointer to store the list updated head.
  */
 void reverseListRecursiveUtil(Node *head, Node *prev, Node **newHead) {
     if (!head->next) {
