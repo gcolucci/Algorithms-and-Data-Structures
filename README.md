@@ -12,3 +12,6 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 #### Linked Lists
 - [Single Linked List](../master/DataStructures/LinkedLists/C)
+
+#### Trees
+- [Binary Search Tree](../master/DataStructures/Trees/C)
