@@ -13,13 +13,16 @@
  * info received by parameter.
  *
  * @param info: The int info stored by the node.
- * @return a pointer to the new node.
+ * @return a pointer to the new node or NULL if memory
+ * could not be allocated.
  */
 Node *createNode(int info) {
     Node *newNode = (Node *) malloc(sizeof(Node));
 
-    newNode->next = NULL;
-    newNode->info = info;
+    if (newNode) {
+        newNode->next = NULL;
+        newNode->info = info;
+    }
 
     return newNode;
 }

@@ -13,13 +13,16 @@
  * info received by parameter.
  *
  * @param info: The int info stored by the node.
- * @return a pointer to the new node.
+ * @return a pointer to the new node or NULL if memory
+ * could not be allocated.
  */
 Node *createNode(int info) {
     Node *newNode = (Node *) malloc(sizeof(Node));
 
-    newNode->left = newNode->right = NULL;
-    newNode->info = info;
+    if (newNode) {
+        newNode->left = newNode->right = NULL;
+        newNode->info = info;
+    }
 
     return newNode;
 }
@@ -27,7 +30,7 @@ Node *createNode(int info) {
 /**
  * Frees the memory used by tree nodes.
  *
- * @param head: A pointer to the tree root.
+ * @param root: A pointer to the tree root.
  */
 void freeTree(Node *root) {
     if (root) {
@@ -237,8 +240,8 @@ void printPostOrder(Node *root) {
  * of the tree.
  *
  * @param root: A pointer to the tree root.
- * @param traverse: The order in which the tree should be traversed:
- * 1: in-order; 2: pre-order; 3: post-order.
+ * @param traverse: An int representing the order in which the tree,
+ * using the defined constants: IN_ORDER, PRE_ORDER, AND POST_ORDER.
  */
 void print(Node *root, int traverse) {
     switch(traverse) {
