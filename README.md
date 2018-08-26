@@ -10,8 +10,11 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 ### Data Structures
 
+#### Heaps
+- [Binary Max Heap](../master/C/DataStructures/Heaps)
+
 #### Linked Lists
-- [Single Linked List](../master/DataStructures/LinkedLists/C)
+- [Single Linked List](../master/C/DataStructures/LinkedLists)
 
 #### Trees
-- [Binary Search Tree](../master/DataStructures/Trees/C)
+- [Binary Search Tree](../master/C/DataStructures/Trees)
