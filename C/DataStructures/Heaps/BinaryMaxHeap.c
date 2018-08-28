@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "BinaryMaxHeap.h"
+
+#include "Heap.h"
 
 /******************************************************
  ***************** MEMORY MANAGEMENT ******************
@@ -18,7 +19,11 @@
  * @return an int representing the success of the memory allocation.
  * It returns 0 in case of error and 1 in case of success.
  */
-int createHeap(MaxHeap *heap, int n) {
+int createHeap(Heap *heap, int n) {
+    if (!heap) {
+        return 0;
+    }
+
     heap->info = (int *) malloc(sizeof(int) * (n+1));
 
     if (heap->info) {
@@ -37,8 +42,10 @@ int createHeap(MaxHeap *heap, int n) {
  * @param heap: The heap which array of info is to be
  * freed.
  */
-void freeHeap(MaxHeap *heap) {
-    free(heap->info);
+void freeHeap(Heap *heap) {
+    if (heap) {
+        free(heap->info);
+    }
 }
 
 /******************************************************
@@ -52,24 +59,26 @@ void freeHeap(MaxHeap *heap) {
  * node in the path is greater or equal to all of its
  * descendants. It traverses the heap bottom-up and stops
  * when the first element in the correct position is found.
- * If the heap is updated using the functions hereby defined,
+ * It assumes the heap was fixed after all updates, so
  * it is not necessary to check the whole path.
  *
  * @param heap: A pointer to the heap.
- * @param k: The index of the last element to be arranged.
+ * @param k: The index of the last element to be rearranged.
  */
-void fixUp(MaxHeap *heap, int k) {
+void fixUp(Heap *heap, int k) {
     int aux;
 
-    // Traverses the path
-    while (k > 1 && heap->info[k] > heap->info[k/2]) {
-        // Swaps elements.
-        aux = heap->info[k];
-        heap->info[k] = heap->info[k/2];
-        heap->info[k/2] = aux;
+    if (heap) {
+        // Traverses the path
+        while (k > 1 && heap->info[k] > heap->info[k/2]) {
+            // Swaps elements.
+            aux = heap->info[k];
+            heap->info[k] = heap->info[k/2];
+            heap->info[k/2] = aux;
 
-        // Jumps to the parent.
-        k /= 2;
+            // Jumps to the parent.
+            k /= 2;
+        }
     }
 }
 
@@ -81,38 +90,40 @@ void fixUp(MaxHeap *heap, int k) {
  * node in the path is greater or equal to all of its
  * descendants. It traverses the heap top-down and stops
  * when the first element in the correct position is found.
- * If the heap is updated using the functions hereby defined,
+ * It assumes the heap was fixed after all updates, so
  * it is not necessary to check the whole path.
  *
  * @param heap: A pointer to the heap.
- * @param k: The index of the first element to be arranged.
+ * @param k: The index of the first element to be rearranged.
  */
-void fixDown(MaxHeap *heap, int k) {
+void fixDown(Heap *heap, int k) {
     int aux, n, i;
 
-    n = heap->n;
+    if (heap) {
+        n = heap->n;
 
-    // Traverses the path.
-    i = 2*k;
-    while (i <= n) {
-        // Chooses the greater sibling among k children.
-        if (heap->info[i] < heap->info[i+1]) {
-            i = i+1;
+        // Traverses the path.
+        i = 2*k;
+        while (i <= n) {
+            // Chooses the greater sibling among k children.
+            if (heap->info[i] < heap->info[i+1]) {
+                i = i+1;
+            }
+
+            // Stops if it found an element in the correct place.
+            if (heap->info[k] >= heap->info[i]) {
+                break;
+            }
+
+            // Swaps elements.
+            aux = heap->info[k];
+            heap->info[k] = heap->info[i];
+            heap->info[i] = aux;
+
+            // Jumps to the swapped element and its left child.
+            k = i;
+            i *= 2;
         }
-
-        // Stops if it found an element in the correct place.
-        if (heap->info[k] >= heap->info[i]) {
-            break;
-        }
-
-        // Swaps elements.
-        aux = heap->info[k];
-        heap->info[k] = heap->info[i];
-        heap->info[i] = aux;
-
-        // Jumps to the swapped element and its left child.
-        k = i;
-        i *= 2;
     }
 }
 
@@ -123,14 +134,18 @@ void fixDown(MaxHeap *heap, int k) {
  * Extracts the greatest element of the heap.
  *
  * It returns the maximum element of the heap and removes it from the
- * structure.
+ * structure. If the heap is less than 25% occupied, it reduces it by half.
  *
  * @param heap: A pointer to the heap.
  * @return an int representing the maximum element or 0 if the heap is
  * empty.
  */
-int extractMax(MaxHeap *heap) {
-    int n, max;
+int extractHeap(Heap *heap) {
+    int n, max, *allocResult;
+
+    if (!heap) {
+        return 0;
+    }
 
     n = heap->n;
 
@@ -149,6 +164,17 @@ int extractMax(MaxHeap *heap) {
     heap->n--;
     fixDown(heap, 1);
 
+    if (heap->n < heap->size * 0.25) {
+        allocResult = (int *) realloc(heap->info, sizeof(int) * heap->size * 0.5 + 1);
+
+        if (!allocResult) {
+            return 0;
+        }
+
+        heap->info = allocResult;
+        heap->size *= 0.5;
+    }
+
     return max;
 }
 
@@ -166,8 +192,12 @@ int extractMax(MaxHeap *heap) {
  * @return an int representing the success of the memory allocation.
  * It returns 0 in case of error and 1 in case of success.
  */
-int insertHeap(MaxHeap *heap, int elem) {
+int insertHeap(Heap *heap, int elem) {
     int *allocResult;
+
+    if (!heap) {
+        return 0;
+    }
 
     // If the heap can't fit more elements
     if (heap->n == heap->size) {
@@ -180,6 +210,7 @@ int insertHeap(MaxHeap *heap, int elem) {
         }
 
         heap->info = allocResult;
+        heap->size *= 1.25;
     }
     // Inserts element in the last position.
     heap->n++;
@@ -204,8 +235,12 @@ int insertHeap(MaxHeap *heap, int elem) {
  * @return an int representing the success of the memory allocation.
  * It returns 0 in case of error and 1 in case of success.
  */
-int removeHeap(MaxHeap *heap, int elem) {
+int removeHeap(Heap *heap, int elem) {
     int i, n, aux, *allocResult;
+
+    if (!heap) {
+        return 0;
+    }
 
     // Searches for the element to be deleted.
     n = heap->n;
@@ -229,13 +264,14 @@ int removeHeap(MaxHeap *heap, int elem) {
 
         // Reallocates memory for the array of elements, if necessary.
         if (heap->n < heap->size * 0.25) {
-            allocResult = (int *) realloc(heap->info, heap->size * 0.5);
+            allocResult = (int *) realloc(heap->info, sizeof(int) * heap->size * 0.5 + 1);
 
             if (!allocResult) {
                 return 0;
             }
 
-            allocResult = heap->info;
+            heap->info = allocResult;
+            heap->size *= 0.5;
         }
     }
 
@@ -253,7 +289,7 @@ int removeHeap(MaxHeap *heap, int elem) {
  *
  * @param heap: The heap to be printed.
  */
-void print(MaxHeap heap) {
+void print(Heap heap) {
     int i, n;
 
     n = heap.n;
