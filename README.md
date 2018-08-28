@@ -12,6 +12,7 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 #### Heaps
 - Binary Max Heap ([C](../master/C/DataStructures/Heaps))
+- Binary Min Heap ([C](../master/C/DataStructures/Heaps))
 
 #### Linked Lists
 - Single Linked List ([C](../master/C/DataStructures/LinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlelinkedlists) | [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlelinkedlists))
