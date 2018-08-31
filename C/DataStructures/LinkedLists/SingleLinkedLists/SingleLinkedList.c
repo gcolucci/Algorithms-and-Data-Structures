@@ -224,6 +224,186 @@ Node *removeNodeRecursive(Node *head, int info) {
     return head;
 }
 
+/**
+ * Removes the first node from the list, i.e., its head.
+ *
+ * It removes the first node from the list and returns the
+ * modified list.
+ *
+ * @param head: A pointer to the list head.
+ * @return The pointer to the modified list head.
+ */
+Node *removeFirstNode(Node *head) {
+    Node *p;
+
+    if (head) {
+        p = head;
+        head = head->next;
+
+        free(p);
+        p = NULL;
+    }
+
+    return head;
+}
+
+/**
+ * Removes the last node from the list.
+ *
+ * It removes the first node from the list and returns the
+ * modified list.
+ *
+ * @param head: A pointer to the list head.
+ * @return The pointer to the modified list head.
+ */
+Node *removeLastNode(Node *head) {
+    Node *p1, *p2;
+
+    if (head) {
+        p1 = head;
+        p2 = head->next;
+
+        // Special case: head is the only element.
+        if (!p2) {
+            free(p1);
+            p1 = NULL;
+
+            return NULL;
+        }
+
+        // Jumps to the end.
+        while (p2->next) {
+            p1 = p1->next;
+            p2 = p2->next;
+        }
+
+        p1->next = NULL;
+
+        free(p2);
+        p2 = NULL;
+    }
+
+    return head;
+}
+
+/**
+ * Recursively removes the last node from the list.
+ *
+ * It removes the first node from the list and returns the
+ * modified list.
+ *
+ * @param head: A pointer to the list head.
+ * @return The pointer to the modified list head.
+ */
+Node *removeLastNodeRecursive(Node *head) {
+    if (head) {
+        if (head->next) {
+            head->next = removeLastNodeRecursive(head->next);
+        }
+        else {
+            free(head);
+            head = NULL;
+        }
+    }
+
+    return head;
+}
+
+/**
+ * Returns a pointer to the last node of the list.
+ *
+ * @param head: A pointer to the list head.
+ * @return the pointer to the list last node.
+ */
+Node *getLastNode(Node *head) {
+    Node *p;
+
+    if (!head) {
+        return NULL;
+    }
+
+    p = head;
+    while (p->next) {
+        p = p->next;
+    }
+
+    return p;
+}
+
+/**
+ * Recursively searches the last node of the list and
+ * returns a pointer to it.
+ *
+ * @param head: A pointer to the list head.
+ * @return the pointer to the list last node.
+ */
+Node *getLastNodeRecursive(Node *head) {
+    if (head && head->next) {
+        return getLastNodeRecursive(head->next);
+    }
+
+    return head;
+}
+
+/**
+ * Returns a pointer to the last node of the list and
+ * removes it from the list.
+ *
+ * It does not free the memory occupied by the node.
+ *
+ * @param head: A double pointer to the list head.
+ * @return the pointer to the list last node.
+ */
+Node *popLastNode(Node **head) {
+    Node *p1, *p2;
+
+    if (*head) {
+        p1 = *head;
+        p2 = (*head)->next;
+
+        // Special case: head is the only element.
+        if (!p2) {
+            *head = NULL;
+
+            return p1;
+        }
+
+        // Jumps to the end.
+        while (p2->next) {
+            p1 = p1->next;
+            p2 = p2->next;
+        }
+
+        p1->next = NULL;
+
+        return p2;
+    }
+
+    return *head;
+}
+
+/**
+ * Returns a pointer to the first node of the list and
+ * removes it from the list.
+ *
+ * It does not free the memory occupied by the node.
+ *
+ * @param head: A double pointer to the list head.
+ * @return the pointer to the list first node.
+ */
+Node *popFirstNode(Node **head) {
+    Node *p;
+
+    if (*head) {
+        p = *head;
+        *head = (*head)->next;
+
+        return p;
+    }
+
+    return *head;
+}
+
 /******************************************************
  ***************** OUTPUT *****************************
  ******************************************************/
@@ -235,32 +415,32 @@ Node *removeNodeRecursive(Node *head, int info) {
  *
  * @param head: A pointer to the list head.
  */
-void print(Node *head) {
+void printList(Node *head) {
     Node *p;
 
     for(p = head; p; p = p->next) {
-        printf("%d -> ", p->info);
+        printListf("%d -> ", p->info);
     }
-    printf("-\n");
+    printListf("-\n");
 }
 
 /**
- * Recursively prints a representation of the list.
+ * Recursively printLists a representation of the list.
  *
  * It uses the -> symbols to represent the link between
  * two nodes. Null nodes are represented with -.
  *
  * @param head: A pointer to the list head.
  */
-void printRecursive(Node *head) {
+void printListRecursive(Node *head) {
     Node *p;
 
     if (!head) {
-        printf("-\n");
+        printListf("-\n");
     }
     else {
-        printf("%d -> ", head->info);
-        printRecursive(head->next);
+        printListf("%d -> ", head->info);
+        printListRecursive(head->next);
     }
 }
 

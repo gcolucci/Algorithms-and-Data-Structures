@@ -177,16 +177,16 @@ Node *removeNode(Node *root, int info) {
  *
  * @param root: A pointer to the tree root.
  */
-void printInOrder(Node *root) {
+void printBSTInOrder(Node *root) {
     if (root) {
         printf("(");
-        printInOrder(root->left);
+        printBSTInOrder(root->left);
         printf(")");
 
         printf("%d", root->info);
 
         printf("(");
-        printInOrder(root->right);
+        printBSTInOrder(root->right);
         printf(")");
     }
 }
@@ -199,16 +199,16 @@ void printInOrder(Node *root) {
  *
  * @param root: A pointer to the tree root.
  */
-void printPreOrder(Node *root) {
+void printBSTPreOrder(Node *root) {
     if (root) {
         printf("%d", root->info);
 
         printf("(");
-        printInOrder(root->left);
+        printBSTInOrder(root->left);
         printf(")");
 
         printf("(");
-        printInOrder(root->right);
+        printBSTInOrder(root->right);
         printf(")");
     }
 }
@@ -221,14 +221,14 @@ void printPreOrder(Node *root) {
  *
  * @param root: A pointer to the tree root.
  */
-void printPostOrder(Node *root) {
+void printBSTPostOrder(Node *root) {
     if (root) {
         printf("(");
-        printInOrder(root->left);
+        printBSTInOrder(root->left);
         printf(")");
 
         printf("(");
-        printInOrder(root->right);
+        printBSTInOrder(root->right);
         printf(")");
 
         printf("%d", root->info);
@@ -243,16 +243,16 @@ void printPostOrder(Node *root) {
  * @param traverse: An int representing the order in which the tree,
  * using the defined constants: IN_ORDER, PRE_ORDER, AND POST_ORDER.
  */
-void print(Node *root, int traverse) {
+void printBST(Node *root, int traverse) {
     switch(traverse) {
         case IN_ORDER:
-            printInOrder(root);
+            printBSTInOrder(root);
             break;
         case PRE_ORDER:
-            printPreOrder(root);
+            printBSTPreOrder(root);
             break;
         case POST_ORDER:
-            printPostOrder(root);
+            printBSTPostOrder(root);
     }
 
     printf("\n");
