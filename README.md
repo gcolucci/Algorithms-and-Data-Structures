@@ -12,10 +12,17 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 #### Heaps
 - Binary Max Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
-- Binary Min Heap ([C](../master/C/DataStructures/BinaryHeaps))
+- Binary Min Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
 
 #### Linked Lists
 - Single Linked List ([C](../master/C/DataStructures/LinkedLists/SingleLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlelinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlelinkedlists))
 
 #### Trees
 - Binary Search Tree ([C](../master/C/DataStructures/Trees/BinarySearchTrees))
+
+### Algorithms
+
+#### Synchronization
+
+- The Santa Claus Problem ([C](../master/C/Algorithms/Synchronization/TheSantaClausProblem/Semaphores)
+
