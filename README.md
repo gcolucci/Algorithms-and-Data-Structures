@@ -10,7 +10,7 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 ### Data Structures
 
-#### Dynamic Arrays ([C](../master/C/DataStructures/DynamicArrays)
+#### Dynamic Arrays ([C](../master/C/DataStructures/DynamicArrays))
 
 #### Heaps
 - Binary Max Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
@@ -20,10 +20,10 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 - Single Linked List ([C](../master/C/DataStructures/LinkedLists/SingleLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlelinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlelinkedlists))
 
 #### Queues
-- With Single Linked Lists ([C](../master/C/DataStructures/Queues/WithLinkedLists)
+- With Single Linked Lists ([C](../master/C/DataStructures/Queues/WithLinkedLists))
 
 #### Stacks
-- With Single Linked Lists ([C](../master/C/DataStructures/Stacks/WithLinkedLists)
+- With Single Linked Lists ([C](../master/C/DataStructures/Stacks/WithLinkedLists))
 
 #### Trees
 - Binary Search Tree ([C](../master/C/DataStructures/Trees/BinarySearchTrees))
@@ -32,5 +32,4 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 #### Synchronization
 
-- The Santa Claus Problem ([C](../master/C/Algorithms/Synchronization/TheSantaClausProblem/Semaphores)
-
+- The Santa Claus Problem ([C](../master/C/Algorithms/Synchronization/TheSantaClausProblem/Semaphores))
