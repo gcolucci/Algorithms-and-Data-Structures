@@ -256,7 +256,7 @@ Node *removeFirstNode(Node *head) {
  * @param head: A pointer to the list head.
  * @return The pointer to the modified list head.
  */
-Node *removeLastNode(Node *head) {
+Node *lastNode(Node *head) {
     Node *p1, *p2;
 
     if (head) {
@@ -295,10 +295,10 @@ Node *removeLastNode(Node *head) {
  * @param head: A pointer to the list head.
  * @return The pointer to the modified list head.
  */
-Node *removeLastNodeRecursive(Node *head) {
+Node *lastNodeRecursive(Node *head) {
     if (head) {
         if (head->next) {
-            head->next = removeLastNodeRecursive(head->next);
+            head->next = lastNodeRecursive(head->next);
         }
         else {
             free(head);
@@ -419,9 +419,9 @@ void printList(Node *head) {
     Node *p;
 
     for(p = head; p; p = p->next) {
-        printListf("%d -> ", p->info);
+        printf("%d -> ", p->info);
     }
-    printListf("-\n");
+    printf("-\n");
 }
 
 /**
@@ -436,10 +436,10 @@ void printListRecursive(Node *head) {
     Node *p;
 
     if (!head) {
-        printListf("-\n");
+        printf("-\n");
     }
     else {
-        printListf("%d -> ", head->info);
+        printf("%d -> ", head->info);
         printListRecursive(head->next);
     }
 }
