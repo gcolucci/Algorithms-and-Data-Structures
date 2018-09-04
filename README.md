@@ -10,6 +10,8 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 ### Data Structures
 
+#### Dynamic Arrays ([C](../master/C/DataStructures/DynamicArrays)
+
 #### Heaps
 - Binary Max Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
 - Binary Min Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
