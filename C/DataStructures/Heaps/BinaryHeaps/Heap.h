@@ -10,7 +10,7 @@ int createHeap(Heap *heap, int n);
 void freeHeap(Heap *heap);
 void fixUp(Heap *heap, int k);
 void fixDown(Heap *heap, int k);
-int extractHeap(Heap *heap);
+int extractHeap(Heap *heap, int *top);
 int insertHeap(Heap *heap, int elem);
 int removeHeap(Heap *heap, int elem);
 void print(Heap heap);
