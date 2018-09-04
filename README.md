@@ -19,6 +19,12 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 #### Linked Lists
 - Single Linked List ([C](../master/C/DataStructures/LinkedLists/SingleLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlelinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlelinkedlists))
 
+#### Queues
+- With Single Linked Lists ([C](../master/C/DataStructures/Queues/WithLinkedLists)
+
+#### Stacks
+- With Single Linked Lists ([C](../master/C/DataStructures/Stacks/WithLinkedLists)
+
 #### Trees
 - Binary Search Tree ([C](../master/C/DataStructures/Trees/BinarySearchTrees))
 
