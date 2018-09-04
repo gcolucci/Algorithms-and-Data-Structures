@@ -33,7 +33,7 @@ void freeQueue(Queue *q) {
  ***************** BASIC OPERATIONS *******************
  ******************************************************/
 /**
- * Enqueue a new element.
+ * Enqueues a new element.
  *
  * It takes a new element to be queued, stores it in a Node
  * and inserts it in the beginning of the data linked list.
@@ -67,7 +67,7 @@ int enqueue(Queue *q, int info) {
 }
 
 /**
- * Dequeue the first element.
+ * Dequeues the first element.
  *
  * It removes the front element from the queue and returns
  * it. It also appropriately updates the rear and front pointers.
@@ -82,10 +82,10 @@ Node *dequeue(Queue *q) {
         return NULL;
     }
 
-    // Dequeue last node in the linked list (the queue front node).
+    // Dequeues last node in the linked list (the queue front node).
     front = popLastNode(&(q->data));
 
-    // Adjust front pointer.
+    // Adjusts front pointer.
     q->front = lastNode(q->data);
 
     return front;

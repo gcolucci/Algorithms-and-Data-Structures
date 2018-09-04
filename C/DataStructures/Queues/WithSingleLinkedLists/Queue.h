@@ -1,4 +1,4 @@
-#include "SingleLinkedList.h"
+#include "../../LinkedLists/SingleLinkedLists/SingleLinkedList.h"
 
 typedef struct {
     Node *data;
@@ -7,6 +7,6 @@ typedef struct {
 
 void createQueue(Queue *q);
 void freeQueue(Queue *q);
-void enqueue(Queue *q, int info);
-void dequeue(Queue *q);
+int enqueue(Queue *q, int info);
+Node *dequeue(Queue *q);
 void printQueue(Queue q);
