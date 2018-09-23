@@ -17,13 +17,13 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 - Binary Min Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
 
 #### Linked Lists
-- Single Linked List ([C](../master/C/DataStructures/LinkedLists/SingleLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlelinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlelinkedlists))
+- Singly Linked List ([C](../master/C/DataStructures/LinkedLists/SinglyLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlylinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlylinkedlists))
 
 #### Queues
-- With Single Linked Lists ([C](../master/C/DataStructures/Queues/WithSingleLinkedLists))
+- With Singly Linked Lists ([C](../master/C/DataStructures/Queues/WithSinglyLinkedLists))
 
 #### Stacks
-- With Single Linked Lists ([C](../master/C/DataStructures/Stacks/WithSingleLinkedLists))
+- With Singly Linked Lists ([C](../master/C/DataStructures/Stacks/WithSinglyLinkedLists))
 
 #### Trees
 - Binary Search Tree ([C](../master/C/DataStructures/Trees/BinarySearchTrees))

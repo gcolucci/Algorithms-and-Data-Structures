@@ -1,4 +1,4 @@
-#include "../../LinkedLists/SingleLinkedLists/SingleLinkedList.h"
+#include "../../LinkedLists/SinglyLinkedLists/SinglyLinkedList.h"
 
 typedef struct {
     Node *data;

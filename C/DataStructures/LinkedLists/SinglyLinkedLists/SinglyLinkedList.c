@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "SingleLinkedList.h"
+#include "SinglyLinkedList.h"
 
 /******************************************************
  ***************** MEMORY MANAGEMENT ******************
@@ -250,13 +250,13 @@ Node *removeFirstNode(Node *head) {
 /**
  * Removes the last node from the list.
  *
- * It removes the first node from the list and returns the
+ * It removes the last node from the list and returns the
  * modified list.
  *
  * @param head: A pointer to the list head.
  * @return The pointer to the modified list head.
  */
-Node *lastNode(Node *head) {
+Node *removeLastNode(Node *head) {
     Node *p1, *p2;
 
     if (head) {
@@ -289,16 +289,16 @@ Node *lastNode(Node *head) {
 /**
  * Recursively removes the last node from the list.
  *
- * It removes the first node from the list and returns the
+ * It removes the last node from the list and returns the
  * modified list.
  *
  * @param head: A pointer to the list head.
  * @return The pointer to the modified list head.
  */
-Node *lastNodeRecursive(Node *head) {
+Node *removeLastNodeRecursive(Node *head) {
     if (head) {
         if (head->next) {
-            head->next = lastNodeRecursive(head->next);
+            head->next = removeLastNodeRecursive(head->next);
         }
         else {
             free(head);
@@ -315,7 +315,7 @@ Node *lastNodeRecursive(Node *head) {
  * @param head: A pointer to the list head.
  * @return the pointer to the list last node.
  */
-Node *getLastNode(Node *head) {
+Node *lastNode(Node *head) {
     Node *p;
 
     if (!head) {
@@ -337,9 +337,9 @@ Node *getLastNode(Node *head) {
  * @param head: A pointer to the list head.
  * @return the pointer to the list last node.
  */
-Node *getLastNodeRecursive(Node *head) {
+Node *lastNodeRecursive(Node *head) {
     if (head && head->next) {
-        return getLastNodeRecursive(head->next);
+        return lastNodeRecursive(head->next);
     }
 
     return head;
@@ -348,8 +348,6 @@ Node *getLastNodeRecursive(Node *head) {
 /**
  * Returns a pointer to the last node of the list and
  * removes it from the list.
- *
- * It does not free the memory occupied by the node.
  *
  * @param head: A double pointer to the list head.
  * @return the pointer to the list last node.
@@ -385,8 +383,6 @@ Node *popLastNode(Node **head) {
 /**
  * Returns a pointer to the first node of the list and
  * removes it from the list.
- *
- * It does not free the memory occupied by the node.
  *
  * @param head: A double pointer to the list head.
  * @return the pointer to the list first node.
@@ -425,7 +421,7 @@ void printList(Node *head) {
 }
 
 /**
- * Recursively printLists a representation of the list.
+ * Recursively prints a representation of the list.
  *
  * It uses the -> symbols to represent the link between
  * two nodes. Null nodes are represented with -.
