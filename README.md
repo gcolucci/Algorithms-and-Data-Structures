@@ -18,6 +18,7 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 
 #### Linked Lists
 - Singly Linked List ([C](../master/C/DataStructures/LinkedLists/SinglyLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlylinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlylinkedlists))
+- Doubly Linked List ([C](../master/C/DataStructures/LinkedLists/DoublyLinkedLists))
 
 #### Queues
 - With Singly Linked Lists ([C](../master/C/DataStructures/Queues/WithSinglyLinkedLists))
