@@ -17,7 +17,7 @@ Please, feel free to provide any sort of feedback. I thank all possible inputs a
 - Binary Min Heap ([C](../master/C/DataStructures/Heaps/BinaryHeaps))
 
 #### Linked Lists
-- Singly Linked List ([C](../master/C/DataStructures/LinkedLists/SinglyLinkedLists) | [Java](../master/Java/src/datastructures/linkedlists/singlylinkedlists) - [JUnit Tests](../master/Java/test/datastructures/linkedlists/singlylinkedlists))
+- Singly Linked List ([C](../master/C/DataStructures/LinkedLists/SinglyLinkedLists)
 - Doubly Linked List ([C](../master/C/DataStructures/LinkedLists/DoublyLinkedLists))
 
 #### Queues
